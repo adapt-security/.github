@@ -1,0 +1,17 @@
+name: Add PR to Project Board
+
+on:
+  workflow_call:
+    secrets:
+      PROJECTS_SECRET:
+        required: true
+
+jobs:
+  add-to-project:
+    name: Add PR to project board
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/orgs/adapt-security/projects/5
+          github-token: ${{ secrets.PROJECTS_SECRET }}
