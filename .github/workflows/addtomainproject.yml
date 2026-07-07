@@ -1,0 +1,22 @@
+name: Add to Project Workflow
+on:
+  workflow_call:
+    inputs:
+      project-url:
+        description: 'GitHub project URL (e.g. https://github.com/orgs/<org>/projects/<n>)'
+        required: true
+        type: string
+    secrets:
+      ADDTOPROJECT_TOKEN:
+        description: 'PAT with write access to the target organization project'
+        required: true
+jobs:
+  add-to-project:
+    name: Add to main project
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - uses: actions/add-to-project@v2.0.0
+        with:
+          project-url: ${{ inputs.project-url }}
+          github-token: ${{ secrets.ADDTOPROJECT_TOKEN }}
