@@ -1,4 +1,4 @@
-name: Add to Project Workflow
+name: Add to project
 on:
   workflow_call:
     inputs:
@@ -12,7 +12,7 @@ on:
         required: true
 jobs:
   add-to-project:
-    name: Add to main project
+    name: Add to project
     runs-on: ubuntu-latest
     permissions: {}
     steps:
